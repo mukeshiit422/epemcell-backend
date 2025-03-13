@@ -80,7 +80,7 @@ app.delete('/upload/:id', async (req, res) => {
       if (rows.length === 0) return res.status(404).json({ error: 'File not found' });
   
       const fileUrl = rows[0].url;
-      const fileKey = fileUrl.split('/').pop(); // Extract file name from URL
+      const fileKey = fileUrl.split('/').pop(); 
   
       await s3.send(new DeleteObjectCommand({
         Bucket: process.env.AWS_BUCKET_NAME,
